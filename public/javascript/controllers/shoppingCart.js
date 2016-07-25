@@ -8,6 +8,7 @@
   function ShoppingCartController(){
     var store = this;
 
+    store.quantity = {};
     store.data = [
       {
           "_id": "55c8ee82152165d244b98300",
@@ -133,6 +134,7 @@
     ]
 
     store.categories = getCategories();
+    store.addToCart = addToCart;
 
     function getCategories(){
       var newArray = [];
@@ -144,6 +146,13 @@
       });
 
       return newArray;
+    }
+      function addToCart(item, quantity){
+      if (!store.quantity[item]){
+        store.quantity[item] = 0
+      }
+
+      store.quantity[item] += parseInt(quantity);
     }
   }
 })();
