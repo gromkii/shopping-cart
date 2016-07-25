@@ -1,1 +1,34 @@
-<h1>Heya.</h1>
+<section ng-repeat="item in shoppingCart.data" class="row">
+  <div class="col-md-2 col-md-offset-1">
+    <img ng-src="{{item.imageUrl}}">
+  </div>
+
+  <div class="col-md-8">
+    <h2>{{ item.name }}</h2>
+    <p>
+      <strong>Price: </strong> {{ item.price | currency }}
+    </p>
+    <p>
+      <strong>Caffine Scale: </strong> {{ item.caffineScale }}
+    </p>
+    <p>
+      <strong>Ingredients: </strong> {{ item.ingredients }}
+    </p>
+    <p>
+      <strong>In Stock: </strong>
+        <span ng-show="item.inStock">Yes</span>
+        <span ng-hide="item.inStock">Nah.</span>
+    </p>
+    <p>
+      <strong>Rating: </strong> {{ item.rating }}
+    </p>
+    <p>
+      <strong>Categories: </strong>
+        <ul ng-repeat="category in item.categories">
+          <li>{{ category }}</li>
+        </ul>
+    </p>
+  </div>
+
+  <div class="col-md-2"
+</section>
