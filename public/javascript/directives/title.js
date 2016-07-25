@@ -1,7 +1,7 @@
 (function(){
   angular
     .module('title',[])
-    .directive('title', titleDirective);
+    .directive('titleDirective', titleDirective);
 
   function titleDirective(){
     var directive = {

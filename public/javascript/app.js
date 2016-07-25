@@ -1,6 +1,6 @@
 (function(){
   angular
-    .module('shoppingApp', ['ngRoute', 'title', 'shoppingCart'])
+    .module('shoppingApp', ['ngRoute', 'Teas', 'title', 'shoppingCart'])
     .config(routeConfig)
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider'];

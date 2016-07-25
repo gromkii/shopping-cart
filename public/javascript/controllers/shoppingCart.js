@@ -6,7 +6,9 @@
   ShoppingCartController.$inject = [];
 
   function ShoppingCartController(){
-    this.data = [
+    var store = this;
+
+    store.data = [
       {
           "_id": "55c8ee82152165d244b98300",
           "name": "Bayard stew",
@@ -129,5 +131,19 @@
           "categories": ["spring", "warm","winter"]
       }
     ]
+
+    store.categories = getCategories();
+
+    function getCategories(){
+      var newArray = [];
+
+      store.data.forEach( item => {
+        item.categories.forEach( category => {
+          newArray.push(category);
+        })
+      });
+
+      return newArray;
+    }
   }
 })();

@@ -1,1 +1,18 @@
-// Hey.
+
+$color1 : #bada55;
+$color2 : #333333;
+
+.heading{
+  background-color:$color1;
+  color:$color2;
+}
+
+h2{
+  @extend .heading;
+  padding:5px;
+  border-radius:5px;
+}
+
+.tea-list{
+  
+}
