@@ -10,8 +10,7 @@
 
     store.cart = {};
     store.data = Teas;
-    store.currentCart = Cart;
-
+    store.cart = Cart;
     store.categories = getCategories();
 
     function getCategories(){

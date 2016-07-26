@@ -6,21 +6,20 @@
   Cart.$inject = [];
 
   function Cart(){
-    var cartQuantity = {};
+    var cart = {
+      addToCart:addToCart,
+    };
 
-    var methods = {
-      addToCart: function(store, item, quantity){
-        if (!store.cart[item]){
-          store.cart[item] = 0;
-        }
+    return cart;
 
-        store.cart[item] += parseInt(quantity);
-        cartQuantity = store.cart;
-
-        return cartQuantity;
+    function addToCart(item, quantity){
+      cart.items = {};
+      if (!cart.items[item]){
+        cart.items[item] = 0;
       }
-    }
 
-    return methods;
+      cart.items[item] += parseInt(quantity);
+      console.log(cart.items);
+    }
   }
 })();

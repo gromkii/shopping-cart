@@ -13,7 +13,6 @@
       templateUrl:'/views/partials/title.html'
     }
 
-
     function TitleDirectiveController(Teas){
       var store = this;
       store.count = Teas.length;
