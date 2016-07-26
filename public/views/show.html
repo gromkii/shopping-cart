@@ -15,7 +15,7 @@
   </div>
 
   <div class="col-md-2">
-    
+
     <lable for="price">Price: </label>
     <select name="price" ng-model="order">
       <option value="price" selected>Low</option>
@@ -25,6 +25,7 @@
 
 
     <form action="/checkout" method="POST">
+      <input type="hidden" ng-value="shoppingCart.quantity">
       <button type="submit" class="btn btn-danger btn-sm">Check Out</button>
     </form>
 
@@ -73,7 +74,7 @@
       <option>3</option>
     </select>
 
-    <button class="btn btn-warning" ng-click="shoppingCart.addToCart(item.name,quantity)">Add to Cart</button>
+    <button class="btn btn-warning" ng-click="shoppingCart.currentCart.addToCart(shoppingCart,item.name,quantity)">Add to Cart</button>
 
   </div>
 </section>

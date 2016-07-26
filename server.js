@@ -13,6 +13,9 @@ app.use(bodyParser.json())
   .get('*', (req, res) => {
     res.sendFile (__dirname + '/public/views/index.html')
   })
+  .post('*', (req, res) => {
+    res.sendFile (__dirname + '/public/views/index.html')
+  })
 
 // --- Server --- //
   .listen(3000, () => {

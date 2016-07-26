@@ -1,7 +1,7 @@
 (function(){
   angular
-    .module('Teas',[])
-    .factory(Teas)
+    .module('teasFactory',[])
+    .factory('Teas', Teas)
 
   function Teas(){
     var data = [

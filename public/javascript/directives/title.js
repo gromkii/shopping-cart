@@ -3,7 +3,9 @@
     .module('title',[])
     .directive('titleDirective', titleDirective);
 
-  function titleDirective(){
+  titleDirective.$inject = ['Teas']
+
+  function titleDirective(Teas){
     var directive = {
       restrict:'EA',
       controller: TitleDirectiveController,
@@ -12,8 +14,9 @@
     }
 
 
-    function TitleDirectiveController(){
-      this.greeting = 'Sup';
+    function TitleDirectiveController(Teas){
+      var store = this;
+      store.count = Teas.length;
     }
 
     return directive;
