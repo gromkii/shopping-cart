@@ -1,5 +1,5 @@
 <section class="row order-inputs">
-  <div class="col-md-8 col-md-offset-1">
+  <div class="col-md-7 col-md-offset-1">
     <label for="categories">Search by Category: </label>
     <select name="categories" ng-model="search.categories">
       <option value="">None</option>
@@ -14,7 +14,7 @@
     <input type="text" ng-model="search.name">
   </div>
 
-  <div class="col-md-2">
+  <div class="col-md-3">
 
     <lable for="price">Price: </label>
     <select name="price" ng-model="order">
@@ -24,10 +24,14 @@
 
 
 
-    <form action="/checkout" method="POST">
-      <input type="hidden" ng-value="shoppingCart.quantity">
-      <button type="submit" class="btn btn-danger btn-sm">Check Out</button>
-    </form>
+
+    <!-- <button type="submit" class="btn btn-danger btn-lg">Check Out</button> -->
+    <a href="/checkout" class="btn btn-lg btn-danger">
+      Checkout
+      <span ng-show="shoppingCart.cart.items.length">
+        | {{ shoppingCart.cart.items.length }}
+      </span>
+    </a>
 
   </div>
 </section>
@@ -41,7 +45,7 @@
   <div class="col-md-6">
     <h2 class="tea-name">{{ item.name }}</h2>
     <p>
-      <strong>Price: </strong> {{ item.price | currency }}
+      <strong>Price: </strong> {{ item.price/100 | currency }}
     </p>
     <p>
       <strong>Caffine Scale: </strong> {{ item.caffineScale }}
@@ -74,7 +78,7 @@
       <option>3</option>
     </select>
 
-    <button class="btn btn-warning" ng-click="shoppingCart.cart.addToCart(item.name,quantity)">Add to Cart</button>
+    <button class="btn btn-warning" ng-click="shoppingCart.cart.addToCart(item, quantity || 1)">Add to Cart</button>
 
   </div>
 </section>

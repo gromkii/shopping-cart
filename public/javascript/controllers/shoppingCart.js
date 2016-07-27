@@ -12,13 +12,16 @@
     store.data = Teas;
     store.cart = Cart;
     store.categories = getCategories();
+    
 
     function getCategories(){
       var newArray = [];
 
       store.data.forEach( item => {
         item.categories.forEach( category => {
-          newArray.push(category);
+          if (!newArray.includes(category)){
+            newArray.push(category);
+          }
         })
       });
 

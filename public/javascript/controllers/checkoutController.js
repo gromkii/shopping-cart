@@ -22,6 +22,15 @@
   }
 
   function CheckoutController(Cart){
-    console.log(Cart);
+    var store = this;
+    store.cart = Cart;
+
+    store.removeItem = removeItem;
+
+
+    function removeItem(index){
+      console.log(store.cart);
+      Cart.items.splice(index,1);
+    }
   }
 })();

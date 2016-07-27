@@ -7,19 +7,28 @@
 
   function Cart(){
     var cart = {
-      addToCart:addToCart,
+      items:[],
+      addToCart:addToCart
     };
 
-    return cart;
 
-    function addToCart(item, quantity){
-      cart.items = {};
-      if (!cart.items[item]){
-        cart.items[item] = 0;
+    function addToCart(tea, quantity){
+      // Iterate through cart.items
+      var duplicateEntry = 0;
+        cart.items.forEach( element => {
+          if (element.name === tea.name){
+            duplicateEntry += 1;
+            element.quantity += parseInt(quantity);
+          }
+        })
+
+        if (duplicateEntry === 0){
+          tea.quantity = parseInt(quantity);
+          cart.items.push(tea);
+        }
       }
 
-      cart.items[item] += parseInt(quantity);
-      console.log(cart.items);
-    }
+    return cart;
   }
+
 })();

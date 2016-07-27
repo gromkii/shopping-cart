@@ -1,3 +1,23 @@
-<h1>Test connection.</h1>
+<section class="col-md-8">
+  <table ng-show="checkout.cart.items.length" class="table">
+    <thead>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Options</th>
+    </thead>
 
-<a href="/" class="btn btn-lg btn-primary">Go back.</a>
+    <tbody ng-repeat="item in checkout.cart.items" ng-show="checkout.cart.items.length">
+      <tr ng-show="item.quantity">
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>
+          <button ng-click="checkout.removeItem(indexOf(item))" class="btn btn-lg btn-warning">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1 ng-hide="checkout.cart.items.length">No items in your cart, dude!</h1>
+
+  <a href="/" class="btn btn-lg btn-primary">Go back.</a>
+</section>
