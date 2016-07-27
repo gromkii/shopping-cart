@@ -26,6 +26,7 @@
           tea.quantity = parseInt(quantity);
           cart.items.push(tea);
         }
+
       }
 
     return cart;

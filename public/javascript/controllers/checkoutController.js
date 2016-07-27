@@ -25,12 +25,31 @@
     var store = this;
     store.cart = Cart;
 
-    store.removeItem = removeItem;
 
+    store.removeItem = removeItem;
+    store.editCost = editCost;
+    store.totalCost = totalCost();
 
     function removeItem(index){
-      console.log(store.cart);
       Cart.items.splice(index,1);
+      store.totalCost = totalCost();
+    }
+
+    function totalCost(){
+      var total = 0;
+      store.cart.items.map(element =>{
+        total += (element.price/100 * element.quantity);
+      })
+
+      return total;
+    }
+
+    function editCost(quantity, editQuantity, edit){
+      console.log(quantity,editQuantity,edit);
+      quantity = editQuantity;
+      edit = false;
+      store.totalCost = totalCost();
+      console.log(quantity, edit);
     }
   }
 })();

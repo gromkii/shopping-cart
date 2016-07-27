@@ -12,7 +12,7 @@
     store.data = Teas;
     store.cart = Cart;
     store.categories = getCategories();
-    
+
 
     function getCategories(){
       var newArray = [];
