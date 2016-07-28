@@ -44,12 +44,11 @@
       return total;
     }
 
-    function editCost(quantity, editQuantity, edit){
-      console.log(quantity,editQuantity,edit);
-      quantity = editQuantity;
+    function editCost(item,edit){
+
+      item.quantity = item.editQuantity;
       edit = false;
       store.totalCost = totalCost();
-      console.log(quantity, edit);
     }
   }
 })();
